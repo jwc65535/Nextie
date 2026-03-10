@@ -1,0 +1,39 @@
+{
+  "name": "ext-ts",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Modern TypeScript ExtJS-style framework monorepo",
+  "packageManager": "pnpm@10.5.2",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r --workspace-concurrency=1 run build",
+    "test": "vitest --workspace vitest.workspace.ts run",
+    "test:watch": "vitest --workspace vitest.workspace.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc -b --noEmit",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.0.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs}": [
+      "eslint --fix"
+    ],
+    "*.{ts,tsx,js,mjs,cjs,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}
